@@ -4,8 +4,8 @@ The scripts are tested on Ubuntu.
   
 ## Exercise 1  
 
-First install docker, using the install-docker.sh script.  
-Second run the Jenkins docker container by running docker-compose up .  
+First install docker, using the install-docker.sh script by running the command "sudo ./install-docker.sh".
+Second run the Jenkins docker container by running "docker-compose up ." from the install-jenkins directory.
 
 ## Exercise 2
 
