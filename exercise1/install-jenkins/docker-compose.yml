@@ -10,23 +10,31 @@ services:
     environment:
       - DOCKER_HOST=tcp://docker:2376
       - DOCKER_CERT_PATH=/certs/client
-      - DOCKER_TLS_CERTDIR=/certs
       - DOCKER_TLS_VERIFY=1
     ports:
-      - "2376:2376"
-      - "3000:3000"
       - "8080:8080"
       - "50000:50000"
     volumes:
       - /var/jenkins_home:/var/jenkins_home
       - jenkins-docker-certs:/certs/client:ro
+      - "$HOME":/home
     networks:
       - jenkins
   dind:
     image: docker:dind
     restart: always
+    environment:
+      - DOCKER_TLS_CERTDIR=/certs
+    ports:
+      - "2376:2376"
+      - "3000:3000"
+    volumes:
+      - jenkins-docker-certs:/certs/client
+      - /var/jenkins_home:/var/jenkins_home
     networks: 
-      - jenkins
+      jenkins:
+        aliases:
+          - docker
     privileged: true
     command: --storage-driver=overlay2
 
