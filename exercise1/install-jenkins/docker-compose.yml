@@ -17,7 +17,7 @@ services:
     volumes:
       - /var/jenkins_home:/var/jenkins_home
       - jenkins-docker-certs:/certs/client:ro
-      - "$$HOME":/home                                                                                                                 
+      - /home:/home                                                                                                                 
     networks:
       - jenkins
   dind:
