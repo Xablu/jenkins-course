@@ -25,7 +25,8 @@ services:
   dind:
     image: docker:dind
     restart: always
-    networks: jenkins
+    networks: 
+      - jenkins
     privileged: true
     command: --storage-driver=overlay2
 
