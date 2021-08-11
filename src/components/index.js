@@ -5,14 +5,10 @@ export { default as About } from "./about";
 export { default as Contact } from "./contact";
 
 export function test() {
-    if(performance.memory.totalJSHeapSize == 0){
+    if(performance.memory.totalJSHeapSize === 0){
         console.warn('totalJSHeapSize == 0');
       }
-    
-      var bla = document.getELementByID(bla);
-      if(bla == '2'){
-        return bla;
-      }
+
 }
 
 export function test2() {
@@ -21,7 +17,7 @@ export function test2() {
       }
     
       var bla = document.getELementByID(bla);
-      if(bla == '2'){
+      if(bla === '2'){
         return bla;
       }
 }
@@ -32,7 +28,7 @@ export function test3() {
       }
     
       var bla = document.getELementByID(bla);
-      if(bla == '2'){
+      if(bla === '2'){
         return bla;
       }
 }
@@ -43,7 +39,7 @@ export function test4() {
       }
     
       var bla = document.getELementByID(bla);
-      if(bla == '2'){
+      if(bla === '2'){
         return bla;
       }
 }
@@ -54,7 +50,7 @@ export function test5() {
       }
     
       var bla = document.getELementByID(bla);
-      if(bla == '2'){
+      if(bla === '2'){
         return bla;
       }
 }
