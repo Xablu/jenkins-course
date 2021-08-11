@@ -26,7 +26,7 @@ pipeline {
                 sh 'echo "Visit http://<jenkins-host>:3000 from your webbrowser"'
                 sh 'echo "(This is why you specified the "args -p 3000:3000" parameter when you"'
                 sh 'echo "created your initial Pipeline as a Jenkinsfile.)"'
-
+                input message: 'Finished using the web site? (Click "Proceed" to continue)'
             }
         }
     }
