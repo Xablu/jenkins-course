@@ -14,18 +14,18 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'echo "Testing..."'
-                sh npm test
+                sh 'npm test'
             }
         }
         stage('Deliver') {
             steps {
                 sh 'echo "Delivering..."'
-                sh npm run build
-                sh npm start &
-                sh sleep 1
+                sh 'npm run build'
+                sh 'npm start &'
+                sh 'sleep 1'
                 sh 'echo "Visit http://<jenkins-host>:3000 from your webbrowser"'
-                sh echo '(This is why you specified the "args ''-p 3000:3000''" parameter when you'
-                sh echo 'created your initial Pipeline as a Jenkinsfile.)
+                sh 'echo "(This is why you specified the "args ''-p 3000:3000''" parameter when you"'
+                sh 'echo "created your initial Pipeline as a Jenkinsfile.)"'
 
             }
         }
