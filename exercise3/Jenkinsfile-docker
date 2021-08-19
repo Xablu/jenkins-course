@@ -1,12 +1,5 @@
-def PIDBUILDAPP
-
 pipeline {
-    agent {
-        docker {
-            image 'node:lts-buster-slim'
-            args '-p 3000:3000'
-        }
-    }
+    agent any
     environment {
         CI = 'true'
     }
@@ -27,19 +20,9 @@ pipeline {
                 }
             }
         }
-        stage('Deliver') {
-            steps {
-                sh 'echo "Delivering..."'
-                dir ('webapp') {
-
-                    sh 'npm run build'
-
-                    sh 'sleep 1'
-                    input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                    script {
-                        docker.build('myNodeJSApp:latest')
-                    }
-                }
+        stage('Build container') {
+            script {
+                docker.build('myNodeJSApp:latest')
             }
         }
     }
