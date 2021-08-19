@@ -11,10 +11,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'pwd'
-		        sh 'cd webapp'
-                sh 'pwd'
-                sh 'npm install --save-dev cross-env'
+                dir('webapp') {
+                    sh 'pwd'
+                    sh 'npm install --save-dev cross-env'
+                }
             }
         }
         stage('Test') {
