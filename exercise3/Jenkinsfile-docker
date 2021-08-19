@@ -29,13 +29,14 @@ pipeline {
                 }
             }
         }
-        stage('Copy distribution files')
+        stage('Copy distribution files') {
             steps {
                 sh 'echo "Copy public folder to staging area.."'
                 dir ('webapp') {
                     sh 'cp -r ./public ../exercise3/'
                 }
             }
+        }
         stage('Build container') {
             steps {
                 dir ('exercise3') {
