@@ -38,7 +38,12 @@ pipeline {
                     //     }
                     // }
                     sh 'npm run build'
-                    sh 'npm start & $PIDBUILDAPP=\$!'
+
+                    PIDBUILDAPP = sh (
+                        script: "npm start & echo \$!",
+                        returnStdout: true
+                    ).trim()
+                    
                     sh 'sleep 1'
                     input message: 'Finished using the web site? (Click "Proceed" to continue)'
                     sh 'kill $PIDBUILDAPP'
