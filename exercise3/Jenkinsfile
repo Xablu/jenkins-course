@@ -32,7 +32,7 @@ pipeline {
                     script {
                         def myEnv = docker.build('myWebApp:snapshot')
                         myEnv.inside {
-                            sh 'npm run build'
+                            sh 'npm run-script build'
                         }
                     }
                 }
