@@ -44,7 +44,6 @@ pipeline {
                     sh 'npm start &'
                     sh 'sleep 1'
                     input message: 'Open a browser and go to http://${NODEADDRESS}:3000.\r\nFinished using the web site? (Click "Proceed" to continue)'
-
                 }
             }
         }
