@@ -21,8 +21,10 @@ pipeline {
             }
         }
         stage('Build container') {
-            script {
-                docker.build('myNodeJSApp:latest')
+            steps {
+                script {
+                    docker.build('myNodeJSApp:latest')
+                }
             }
         }
     }
