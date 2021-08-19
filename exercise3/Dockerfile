@@ -1,6 +1,7 @@
 FROM node:lts-buster-slim
 RUN apt-get update && apt-get upgrade -y
-COPY webapp/ ./webapp/
+ENV PATH /webapp/node_modules/.bin:$PATH
+COPY build/ ./webapp/
 EXPOSE 3000
 WORKDIR "/webapp"
-RUN npm start &
+CMD ["npm", "start"]
