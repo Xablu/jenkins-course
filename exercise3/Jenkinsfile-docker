@@ -23,8 +23,10 @@ pipeline {
         }
         stage('Build container') {
             steps {
-                script {
-                    docker.build('mynodejsapp:latest')
+                dir ('exercise3') {
+                    script {
+                        docker.build('mynodejsapp:latest')
+                    }
                 }
             }
         }
