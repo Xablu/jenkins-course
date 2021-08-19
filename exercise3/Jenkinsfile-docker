@@ -21,6 +21,21 @@ pipeline {
                 }
             }
         }
+        stage('Build NodeJS app') {
+            steps {
+                sh 'echo "Building optimized NodeJS app..."'
+                dir ('webapp') {
+                    sh 'npm run-script build'
+                }
+            }
+        }
+        stage('Copy distribution files')
+            steps {
+                sh 'echo "Copy public folder to staging area.."'
+                dir ('webapp') {
+                    sh 'cp -r ./public ../exercise3/'
+                }
+            }
         stage('Build container') {
             steps {
                 dir ('exercise3') {

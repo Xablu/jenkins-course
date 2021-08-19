@@ -1,6 +1,5 @@
 FROM node:lts-buster-slim
 RUN apt-get update && apt-get upgrade -y
-COPY ../webapp/ .
+COPY public/ .
 EXPOSE 3000
-WORKDIR "/webapp"
-RUN npm start &
+WORKDIR "/public"
