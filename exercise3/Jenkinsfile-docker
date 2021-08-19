@@ -32,7 +32,7 @@ pipeline {
         stage('Copy distribution files') {
             steps {
                 sh 'echo "Copy public folder to staging area.."'
-                sh 'cp -r ./webapp ./exercise3/'
+                sh 'cp -r ./webapp/build ./exercise3/'
             }
         }
         stage('Build container') {
