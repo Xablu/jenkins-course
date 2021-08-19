@@ -24,7 +24,7 @@ pipeline {
         stage('Build container') {
             steps {
                 script {
-                    docker.build('myNodeJSApp:latest')
+                    docker.build('mynodejsapp:latest')
                 }
             }
         }
