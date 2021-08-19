@@ -32,12 +32,12 @@ pipeline {
         stage('Copy distribution files') {
             steps {
                 sh 'echo "Copy public folder to staging area.."'
-                sh 'cp -r ./webapp/build ./exercise3/'
+                sh 'cp -r ./webapp/build ./exercise3/build-docker-image'
             }
         }
         stage('Build container') {
             steps {
-                dir ('exercise3') {
+                dir ('exercise3/build-docker-image') {
                     script {
                         docker.build('mynewnodejsapp:latest')
                     }
