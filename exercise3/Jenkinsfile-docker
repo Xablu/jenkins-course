@@ -25,7 +25,7 @@ pipeline {
             steps {
                 dir ('exercise3') {
                     script {
-                        docker.build('mynodejsapp:latest')
+                        docker.build('mynewnodejsapp:latest')
                     }
                 }
             }
